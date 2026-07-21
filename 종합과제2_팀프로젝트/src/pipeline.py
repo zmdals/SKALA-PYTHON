@@ -60,7 +60,7 @@ def build_and_train(df: pd.DataFrame, save_path: str) -> dict:
     mae = mean_absolute_error(y_test, y_pred)
     rmse = np.sqrt(mean_squared_error(y_test, y_pred))
 
-    print(f"\n=== 모델 평가 ===")
+    print("\n=== 모델 평가 ===")
     print(f"  R²:   {r2:.4f}  (1에 가까울수록 좋음, 변동의 {r2*100:.1f}% 설명)")
     print(f"  MAE:  {mae:.2f}분 (평균적으로 {mae:.1f}분 틀림)")
     print(f"  RMSE: {rmse:.2f}분 (큰 오차에 벌점)")

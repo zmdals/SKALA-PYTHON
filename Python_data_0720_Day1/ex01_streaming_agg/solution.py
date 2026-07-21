@@ -103,7 +103,7 @@ if __name__ == "__main__":
     file_path = "../../data/web_logs.csv"
     try:
         result = aggregate(read_logs(file_path))
-    except FileNotFoundError as e:
+    except FileNotFoundError:
         print("파일을 찾지 못했습니다.")
         exit(1)
     else:

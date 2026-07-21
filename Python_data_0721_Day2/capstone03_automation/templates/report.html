@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+  body { font-family: sans-serif; margin: 40px; background: #fafafa; }
+  h1 { color: #1F3864; }
+  table { border-collapse: collapse; margin-top: 12px; }
+  th, td { border: 1px solid #ccc; padding: 8px 14px; text-align: right; }
+  th { background: #1F3864; color: white; }
+  td:first-child { text-align: left; }
+  .meta { color: #666; font-size: 0.9em; }
+</style></head><body>
+
+  <h1>{{ title }}</h1>
+  <p class="meta">생성 시각: {{ generated_at }}</p>
+
+  <h2>핵심 지표</h2>
+  <ul>
+  {% for k, v in kpi.items() %}
+    <li><strong>{{ k }}</strong>: {{ '{:,}'.format(v) }}</li>
+  {% endfor %}
+  </ul>
+
+  <h2>카테고리별 매출 TOP {{ by_category|length }}</h2>
+  <table>
+    <tr><th>카테고리</th><th>매출</th></tr>
+    {% for row in by_category %}
+    <tr>
+      <td>{{ row.category }}</td>
+      <td>{{ '{:,.0f}'.format(row.amount) }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+</body></html>
